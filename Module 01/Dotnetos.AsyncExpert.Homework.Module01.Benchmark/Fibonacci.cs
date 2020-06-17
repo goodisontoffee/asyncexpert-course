@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Diagnostics.Windows.Configs;
 
 namespace Dotnetos.AsyncExpert.Homework.Module01.Benchmark
 {
     [DisassemblyDiagnoser(exportCombinedDisassemblyReport: true)]
+    [NativeMemoryProfiler]
     public class FibonacciCalc
     {
         private readonly IDictionary<ulong, ulong> memoized = new Dictionary<ulong, ulong>(36)
